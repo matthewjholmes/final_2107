@@ -1,11 +1,12 @@
-require './lib/item'
-require './lib/auction'
 require './lib/attendee'
-attendee = Attendee.new(name: 'Megan', budget: '$50')
-#=> #<Attendee:0x00007fbda913f038 @budget=50, @name="Megan">
 
-attendee.name
-#=> "Megan"
+RSpec.describe Attendee do
 
-attendee.budget
-#=> 50
+  it 'exists and has attributes' do
+    attendee = Attendee.new(name: 'Megan', budget: '$50')
+
+    expect(attendee).to be_a(Attendee)
+    expect(attendee.name).to eq("Megan")
+    expect(attendee.budget).to eq(50)
+  end
+end
